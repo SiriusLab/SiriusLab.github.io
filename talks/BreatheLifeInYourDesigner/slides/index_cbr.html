@@ -51,8 +51,20 @@
 				</section>
 
 
+
 				<section>
-					<h2>Arduino DSL Ecore Model</h2>
+					<h2>a simple Eclipse Based tooling</h2>
+					<img alt="" src="pics/arduino-screenshot.png">
+				</section>
+
+				<section>
+					<h2>Based on EMF and Sirius</h2>
+					<img alt="" src="pics/arduino-archi.png">
+				</section>
+
+
+				<section>
+					<img alt="" src="pics/arduino-ecore.png">
 				</section>
 
 				<section>
@@ -60,31 +72,86 @@
 					<small><pre>
 							<code>
 public class LoopSwitch extends ArduinoSwitch  {
- 	//...
- 	
-	@Override
-	public Object caseSensor(Sensor sensor) {
-		final Pin pin = ArduinoUtils.getPin(simulator.getProject(),
-				sensor.getModule());
-		return interpretObjectValueToBoolean(simulator.getPinLevel(pin));
-	}
+//...
 	
-	@Override
-	public Object caseRepeat(Repeat repeat) {
-		final Instruction first = repeat.getInstructions().get(0);
-		for (int i = 0; i < repeat.getIteration(); ++i) {
-			Instruction current = first;
-			while (current != null) {
-				doSwitch(current);
-				current = current.getNext();
-			}
+@Override
+public Object caseSensor(Sensor sensor) {
+	final Pin pin = ArduinoUtils.getPin(simulator.getProject(),
+			sensor.getModule());
+	return interpretObjectValueToBoolean(simulator.getPinLevel(pin));
+}
+
+@Override
+public Object caseRepeat(Repeat repeat) {
+	final Instruction first = repeat.getInstructions().get(0);
+	for (int i = 0; i < repeat.getIteration(); ++i) {
+		Instruction current = first;
+		while (current != null) {
+			doSwitch(current);
+			current = current.getNext();
 		}
-		return null;
 	}
-	// ...			 
+	return null;
+}
+
+// ...			 
  }
 </code>
-						</pre> </small>
+</pre></small>
+				</section>
+
+				<section>
+					<h2>Simulator Control</h2>
+					<small><pre>
+							<code class="java" data-trim>
+public class SimulatorDebugger extends AbstractDSLDebugger {
+//...
+public void start() {
+	new Thread(new Runnable() {
+
+		public void run() {
+			spawnRunningThread(Thread.currentThread().getName(),
+					simulator.getProject());
+			simulator.init();
+			simulator.loop();
+		}
+	}, "Arduino Simulator").start();
+}
+
+public void updateData(String threadName, EObject instruction) {
+	if (!hardwareFramePushed) {
+		pushStackFrame(Thread.currentThread().getName(), simulator
+				.getProject().getHardware().getName(), simulator
+				.getProject().getHardware(), instruction);
+		hardwareFramePushed = true;
+	} else {
+		setCurrentInstruction(Thread.currentThread().getName(), instruction);
+	}
+	for (Entry&lt;Variable, Object&gt; entry : nextSuspendVariables.entrySet()) {
+		variable(threadName,
+				simulator.getProject().getHardware().getName(), &quot;variable&quot;,
+				entry.getKey().getName(), entry.getValue(), true);
+	}
+	if (!nextSuspendVariables.isEmpty()) {
+		lastSuspendVariables = nextSuspendVariables;
+		nextSuspendVariables = new HashMap&lt;Variable, Object&gt;();
+	}
+	for (Entry&lt;Pin, Integer&gt; entry : nextSuspendPins.entrySet()) {
+		variable(threadName,
+				simulator.getProject().getHardware().getName(), &quot;pin&quot;,
+				String.valueOf(entry.getKey().getId()), entry.getValue(),
+				true);
+	}
+	if (!nextSuspendPins.isEmpty()) {
+		lastSuspendPins = nextSuspendPins;
+		nextSuspendPins = new HashMap&lt;Pin, Integer&gt;();
+	}
+}
+
+// ...			 
+ }
+</code>
+</pre></small>
 				</section>
 
 
@@ -114,16 +181,69 @@ public class LoopSwitch extends ArduinoSwitch  {
 				</section>
 
 				<section>
-					<h2>Interation with Eclipse Debug</h2>
-				</section>
-
-				<section>
-					<h2>Demo</h2>
+					<h2>Integration with Eclipse Debug</h2>
+					<img alt="" src="pics/debug-ecore.png">
 				</section>
 
 
 				<section>
-					<h2>Difference with the "Activity" use case</h2>
+					<h2>Launch Configurations</h2>
+				</section>
+
+
+				<section>
+					<h2>Demo of Arduino Designer</h2>
+				</section>
+
+			</section>
+			<section>
+
+				<section>
+					<h2>Animating Activity Diagrams</h2>
+				</section>
+
+				<section>
+					<h2>Context: TTC contest</h2>
+					<ul>
+						<li><code>.ecore</code> is provided "as-is" and can't be adapted</li>
+					</ul>
+				</section>
+
+
+
+				<section>
+					<h2>Definition of Execution Semantic</h2>
+					<small><pre>
+							<code>
+@Aspect(className=ActivityNode)
+class ActivityNodeAspect {
+	List&lt;Token&gt; heldTokens = new ArrayList&lt;Token&gt;
+}
+
+abstract class Token {
+	public ActivityNode holder
+}
+
+class ForkedToken extends Token {
+	public Token baseToken ;
+	public Integer remainingOffersCount;
+}
+//...
+</code>
+</pre></small>
+				</section>
+
+
+				<section>
+					<h2>Define runtime concepts</h2>
+				</section>
+
+
+				<section>
+					<h2>Additional capabilities "for free" : demo</h2>
+					<ul>
+						<li></li>
+					</ul>
 				</section>
 
 			</section>
@@ -140,6 +260,8 @@ public class LoopSwitch extends ArduinoSwitch  {
 
 				<section>
 					<h2>Sirius-Lab</h2>
+					<!-- Page sur Sirius -->
+
 				</section>
 
 				<section>
