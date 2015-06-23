@@ -126,10 +126,311 @@
 					</section>
 					
 				</section>
-				
-			
 
-			</div>
+			<section>
+
+				<section>
+					<h2>Animating Arduino Designer</h2>
+					<img alt="" src="pics/arduino-splash.png">
+				</section>
+
+				<section>
+					<h2>a simple Eclipse Based tooling</h2>
+					<img alt="" src="pics/arduino-screenshot.png">
+				</section>
+
+				<section>
+					<h2>Based on EMF and Sirius</h2>
+					<img alt="" src="pics/arduino-archi.png">
+				</section>
+
+
+				<section>
+					<img alt="" src="pics/arduino-ecore.png">
+				</section>
+
+				<section>
+					<h2>Simulator Logic</h2>
+					<small><pre>
+							<code>
+public class LoopSwitch extends ArduinoSwitch  {
+//...
+	
+@Override
+public Object caseSensor(Sensor sensor) {
+	final Pin pin = ArduinoUtils.getPin(simulator.getProject(),
+			sensor.getModule());
+	return interpretObjectValueToBoolean(simulator.getPinLevel(pin));
+}
+
+@Override
+public Object caseRepeat(Repeat repeat) {
+	final Instruction first = repeat.getInstructions().get(0);
+	for (int i = 0; i < repeat.getIteration(); ++i) {
+		Instruction current = first;
+		while (current != null) {
+			doSwitch(current);
+			current = current.getNext();
+		}
+	}
+	return null;
+}
+
+// ...			 
+ }
+</code>
+</pre></small>
+				</section>
+
+				<section>
+					<h2>Simulator Control</h2>
+					<small><pre>
+							<code class="java" data-trim>
+public class SimulatorDebugger extends AbstractDSLDebugger {
+//...
+public void start() {
+	new Thread(new Runnable() {
+
+		public void run() {
+			spawnRunningThread(Thread.currentThread().getName(),
+					simulator.getProject());
+			simulator.init();
+			simulator.loop();
+		}
+	}, "Arduino Simulator").start();
+}
+
+public void updateData(String threadName, EObject instruction) {
+	if (!hardwareFramePushed) {
+		pushStackFrame(Thread.currentThread().getName(), simulator
+				.getProject().getHardware().getName(), simulator
+				.getProject().getHardware(), instruction);
+		hardwareFramePushed = true;
+	} else {
+		setCurrentInstruction(Thread.currentThread().getName(), instruction);
+	}
+	for (Entry&lt;Variable, Object&gt; entry : nextSuspendVariables.entrySet()) {
+		variable(threadName,
+				simulator.getProject().getHardware().getName(), &quot;variable&quot;,
+				entry.getKey().getName(), entry.getValue(), true);
+	}
+	if (!nextSuspendVariables.isEmpty()) {
+		lastSuspendVariables = nextSuspendVariables;
+		nextSuspendVariables = new HashMap&lt;Variable, Object&gt;();
+	}
+	for (Entry&lt;Pin, Integer&gt; entry : nextSuspendPins.entrySet()) {
+		variable(threadName,
+				simulator.getProject().getHardware().getName(), &quot;pin&quot;,
+				String.valueOf(entry.getKey().getId()), entry.getValue(),
+				true);
+	}
+	if (!nextSuspendPins.isEmpty()) {
+		lastSuspendPins = nextSuspendPins;
+		nextSuspendPins = new HashMap&lt;Pin, Integer&gt;();
+	}
+}
+
+// ...			 
+ }
+</code>
+</pre></small>
+				</section>
+
+
+				<section>
+					<h2>Extending the tooling</h2>
+					<ul>
+						<li class="fragment fade-in">simulator.odesign customizing arduino.odesign <img alt="" src="pics/vsm-extension-expanded.png">
+						</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Extending the tooling (2)</h2>
+					<ul>
+						<li class="fragment fade-in">Contributing actions
+							<p>
+								<img alt="" src="pics/vsm-extension-tools.png">
+							</p>
+						</li>
+						<li class="fragment fade-in">Adapting style
+							<p>
+								<img alt="" src="pics/vsm-extension-style.png">
+							</p>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>the Sirius Animation runtime</h2>
+					<ul>
+						<li class="fragment roll-in">Encapsulate step over/into/return in transactions</li>
+						<li class="fragment roll-in">Provide off-the-shelf ecore model for runtime data</li>
+						<li class="fragment roll-in">Bridge the Eclipse Debug APIs and the EMF APIs</li>
+						<li class="fragment roll-in">Transmit events and requests</li>
+						<li class="fragment roll-in">Initialize the tooling extension</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Integration with Eclipse Debug</h2>
+					<img alt="" src="pics/debug-ecore.png">
+				</section>
+
+
+				<section>
+					<h2>Launch Configurations</h2>
+					<img alt="" src="pics/arduino-launch-config.png">
+				</section>
+
+
+				<section data-background="pics/arduino-cat-buble.png">
+					<h2>Demo</h2>
+					<h2 class="fragment fade-in">... with no cat</h2>
+				</section>
+
+				<section>
+
+					<ul>
+						<li class="fragment roll-in"><b>2</b> new plugins :
+							<ul>
+
+								<li>fr.obeo.dsl.arduino.simulator</li>
+								<li>fr.obeo.dsl.arduino.simulator.design</li>
+							</ul></li>
+						<li class="fragment roll-in"><pre>
+								<code>
+-------------------------------------------------------------------
+Language         files          blank        comment           code
+-------------------------------------------------------------------
+Java                14            229            318           1185
+XML                  5              0              0            329
+Maven                2             12             18             54
+-------------------------------------------------------------------
+SUM:                21            241            336           1568
+-------------------------------------------------------------------
+						
+						</code>
+							</pre></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Try it !</h2>
+					<img alt="" src="pics/arduino-download.png">
+				</section>
+
+			</section>
+			<section>
+
+				<section>
+					<h2>Animating Activity Diagrams</h2>
+				</section>
+
+				<section>
+					<h2>Context: TTC contest</h2>
+					<ul>
+						<li><code>.ecore</code> is provided "as-is" and can't be adapted</li>
+					</ul>
+				</section>
+
+
+
+				<section>
+					<h2>Definition of Execution Semantic</h2>
+					<small><pre>
+							<code>
+@Aspect(className=ActivityNode)
+class ActivityNodeAspect {
+	List&lt;Token&gt; heldTokens = new ArrayList&lt;Token&gt;
+}
+
+abstract class Token {
+	public ActivityNode holder
+}
+
+class ForkedToken extends Token {
+	public Token baseToken ;
+	public Integer remainingOffersCount;
+}
+//...
+</code>
+</pre></small>
+				</section>
+
+
+				<section>
+					<h2>Define runtime concepts</h2>
+				</section>
+
+
+				<section>
+					<h2>Additional capabilities "for free" : demo</h2>
+					<ul>
+						<li></li>
+					</ul>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section data-background="#ffffff">
+					<img alt="" src="pics/gemoc-anr-map.png">
+				</section>
+
+
+				<section data-background="#ffffff">
+					<h2 style="color: gray">Gemoc Initiative</h2>
+					<q style="color: gray;" cite="http://gemoc.org/">GEMOC is an open international initiative that aims to coordinate and disseminate the research results regarding the support of the coordinated use of various modeling languages that will lead to the concept of globalization of modeling
+						languages, that is, the use of multiple modeling languages to support coordinated development of diverse aspects of a system.</q>
+				</section>
+
+				<section data-background="pics/gemoc-initiative-map.png" style="color: gray;">
+					<p></p>
+				</section>
+
+				<section>
+					<h2>Sirius Animator Status</h2>
+					<p>Applied "Prototype" level of maturity : Arduino Designer, fUML, TTC2015</p>
+					<p>Incubating in Sirius Lab</p>
+					<p>Compatible with Sirius 2.0</p>
+					<p>Looking for interest and more complex use cases to move forward.</p>
+				</section>
+
+
+				<section>
+					<h2>Other Gemoc Technologies</h2>
+				</section>
+
+				<section data-background="pics/lab.jpg">
+					<h2 style="color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Sirius-Lab</h2>
+					<!-- Page sur Sirius -->
+					<p>
+						<b>Generic</b> technologies which have proven helpful and are looking for a interest to bring it at full maturity level.
+					</p>
+				</section>
+
+				<section>
+					<h2>in a Nutshell...</h2>
+				</section>
+
+				<section>
+					<h2>References</h2>
+				</section>
+
+
+				<section style="text-align: left;">
+					<h1>TO BE CONTINUED...</h1>
+					<p>
+						- <a href="">Try executable Arduino Designer</a> <br> - Read the <a href="http://gemoc.org/publications/">Gemoc Publications</a> <br> - <a href="https://github.com/hakimel/reveal.js">Join the Gemoc Initiative</a> <br> - <a href="">Get in touch</a> to animate your modeling
+						environment
+					</p>
+				</section>
+			</section>
+		</div>
 
 		</div>
 
