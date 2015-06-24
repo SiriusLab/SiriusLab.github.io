@@ -56,51 +56,59 @@
 
 			<section>
 				<section>
-						<h2>(Domain-Specific)<br/>Behavioral Models</h2>
-						<img src="./pics/behavioralmodel.jpg" width="300px" alt="Behavioral Models" />
-						<p>Business Processes, Orchestrations, Functional chains, Activities, Protocoles, Scenarios...</p>
-					</section>
-	
-					<section>
-						<h2>Analysis of Behavioral Models</h2>
-						<ul>
-						<li>Early V&V or impact analysis of behavioral properties</li>	
-						<li>Software engineering, systems engineering, enterprise architecture, scientific modeling...</li>
-						</ul>
-					</section>
+					<h2>
+						(Domain-Specific)<br />Behavioral Models
+					</h2>
+					<img src="./pics/behavioralmodel.jpg" width="300px" alt="Behavioral Models" />
+					<p>Business Processes, Orchestrations, Functional chains, Activities, Protocoles, Scenarios...</p>
+				</section>
 
-					<section>
-						<h2>Model Debugging</h2>
-						<ul>
-							<li>Traversing step forward the states reached by the model through the application of the interpreter</li>
-							<li>Intuitive model comprehension technique</li>
-							<small><ul>
+				<section>
+					<h2>Analysis of Behavioral Models</h2>
+					<ul>
+						<li>Early V&V or impact analysis of behavioral properties</li>
+						<li>Software engineering, systems engineering, enterprise architecture, scientific modeling...</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Model Debugging</h2>
+					<ul>
+						<li>Traversing step forward the states reached by the model through the application of the interpreter</li>
+						<li>Intuitive model comprehension technique</li>
+						<small><ul>
 								<li>No abstraction gap</li>
 								<li>Better turn-arounds</li>
 							</ul></small>
-							<li>&Implies; Fast convergence towards an acceptable design</li>
-						</ul>
-					</section>
-					
-					<section>
-						<h2>Omniscient Model Debugging</h2>
-						<ul>
-							<li>Relies on an execution trace to revert the executed model into a prior state</li>
-							<li>Forward/backward navigation into the execution trace</li>
-							<small><ul>
+						<li>&Implies; Fast convergence towards an acceptable design</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Omniscient Model Debugging</h2>
+					<ul>
+						<li>Relies on an execution trace to revert the executed model into a prior state</li>
+						<li>Forward/backward navigation into the execution trace</li>
+						<small><ul>
 								<li>No record & replay</li>
 								<li>(similar) Replay</li>
 							</ul></small>
-						</ul>
-					</section>
-							
-					<section>
-						<h2>Omniscient Debugging of Activity Diagrams<h2>
-						<img src="./pics/modelingworkbench.jpg" size="500px" alt="Debugger for Activity Diagrams" />
-						<p><small>See <a href="http://gemoc.org/ttc15">http://gemoc.org/ttc15</a></small></p>
-					</section>
-					
-     <!-- <section>
+					</ul>
+				</section>
+
+				<section>
+					<h2>
+						Omniscient Debugging of Activity Diagrams
+						<h2>
+							<img src="./pics/modelingworkbench.jpg" size="500px" alt="Debugger for Activity Diagrams" />
+							<p>
+								<small>See <a href="http://gemoc.org/ttc15">http://gemoc.org/ttc15</a></small>
+							</p>
+				</section>
+
+				<section data-background="pics/gif/Screencast-activitydiagram-plainK3-run_and_step.gif"></section>
+
+				<!-- <section>
 <h2>Required Tools</h2>
 <ul>
 <li>Interpreter: step-by-step virtual machine for a given DSL</li>
@@ -111,30 +119,41 @@
 </ul>
 </section>
 -->
-		 
-					<section>
-						<h2>Required Tools<h2>
-						<img src="./pics/executableDSL-tools1b.png" alt="Required Tools" />
-					</section>
-					<!--<section data-background="./pics/executableDSL-tools1.png">
-					</section>-->
-					
-				</section>
-				
+
 				<section>
-					
-					<section>
-						<h2>How to get your own<br/>(domain-specific) debugger?</h2>
-					</section>
-					
-					<section>
-						<h2>Required Developments<h2>
-						<img src="./pics/executableDSL-tools2b.png" alt="Required Developments" />
-					</section>
-					<!--<section data-background="./pics/executableDSL-tools2.png">
+					<h2>
+						Required Tools
+						<h2>
+							<img src="./pics/executableDSL-tools1b.png" alt="Required Tools" />
+				</section>
+				<!--<section data-background="./pics/executableDSL-tools1.png">
 					</section>-->
 
-					<!--
+			</section>
+
+			<section>
+
+				<section>
+					<h2>
+						How to get your own<br />(domain-specific) debugger?
+					</h2>
+				</section>
+
+				<section>
+					<h2>
+						Required Developments
+						<h2>
+							<img src="./pics/executableDSL-tools2b.png" alt="Required Developments" />
+				</section>
+				
+				
+
+				
+				
+				<!--<section data-background="./pics/executableDSL-tools2.png">
+					</section>-->
+
+				<!--
 					<section>
 						<h2>Required developments for each DSL<h2>
 						<img src="./pics/executableDSL-debug.png" alt="Required developments for each DSL" />
@@ -143,19 +162,19 @@
 					<section data-background="./pics/executableDSL.png">
 					</section>
 					-->
-				
-					<section>
-						<h2>Proposed Approach: Wrap-up</h2>
-						<ul>
-							<li>Xtend/Kermeta or Java to define the interpreter</li>
-							<li>Sirius Animation to define the animator</li>
-							<li class="fragment roll-in">A generative approach for the trace manager</li>
-							<li class="fragment roll-in">A generic execution engine</li>
-							<li class="fragment roll-in">A generic control panel and timeline</li>
-						</ul>
-					</section>
-					
-					<!--<section>
+
+				<section>
+					<h2>Proposed Approach: Wrap-up</h2>
+					<ul>
+						<li>Xtend/Kermeta or Java to define the interpreter</li>
+						<li>Sirius Animation to define the animator</li>
+						<li class="fragment roll-in">A generative approach for the trace manager</li>
+						<li class="fragment roll-in">A generic execution engine</li>
+						<li class="fragment roll-in">A generic control panel and timeline</li>
+					</ul>
+				</section>
+
+				<!--<section>
 						<h2>Alternatives and Tradeoff</h2>
 						<p>
 						TODO
@@ -176,7 +195,7 @@
 					<img alt="" src="pics/arduino-screenshot.png">
 				</section>
 
-<!-- 
+				<!-- 
 				<section>
 					<h2>Based on EMF and Sirius</h2>
 					<img alt="" src="pics/arduino-archi.png">
@@ -188,7 +207,7 @@
 				</section>
 
 				<section>
-				<h2>Arduino Simulator</h2>
+					<h2>Arduino Simulator</h2>
 					<ul>
 						<li class="fragment roll-in"><b>2</b> new plugins :
 							<ul>
@@ -355,9 +374,9 @@ public void updateData(String threadName, EObject instruction) {
 					<h2 class="fragment fade-in">... with no cat</h2>
 				</section>
 
-		
 
-<!--
+
+				<!--
 				<section>
 					<h2>Try it !</h2>
 					<img alt="" src="pics/arduino-download.png">
@@ -370,25 +389,18 @@ public void updateData(String threadName, EObject instruction) {
 
 
 			</section>
-			<section>
-
+	
+<!--
 				<section>
 					<h2>Animating Activity Diagrams</h2>
 				</section>
 
-				<section>
-					<h2>Context: TTC'15 Execution Model Case</h2>
-					<ul>
-						<li><code>.ecore</code> is provided "as-is" and can't be adapted</li>
-					</ul>
-				</section>
-
-
-
 
 
 				<section>
-					<h2>Interpreter<br/>(runtime data)</h2>
+					<h2>
+						Interpreter<br />(runtime data)
+					</h2>
 					<small><pre>
 							<code>
 @Aspect(className=ActivityNode)
@@ -410,7 +422,9 @@ class ForkedToken extends Token {
 				</section>
 
 				<section>
-					<h2>Interpreter<br/>(computational steps)</h2>
+					<h2>
+						Interpreter<br />(computational steps)
+					</h2>
 					<small><pre>
 							<code>
 @Aspect(className=Activity)
@@ -432,8 +446,9 @@ class ActivityAspect {
 </pre></small>
 				</section>
 
+
 				<section>
-					<h2>Additional capabilities "for free" : demo</h2>
+					<h3>Additional capabilities "for free"</h3>
 					<ul>
 						<li>Definition of the animator with Sirius Animation</li>
 						<li>Use of the generic execution engine</li>
@@ -441,31 +456,28 @@ class ActivityAspect {
 						<li>Use of the control panel, timeline and breakpoint manager</li>
 					</ul>
 				</section>
-
-			</section>
+  -->
 
 			<section>
 
 
-				<section data-background="#ffffff">
-					<h2>The GEMOC ANR project</h2>
-					<q style="color: gray;" cite="http://gemoc.org">
-						A Language Workbench for concurrent execution and simulation of heterogeneous models
-					</q>
-					<p>ANR Project #ANR-12-INSE-0011, 2012 - 2016</p>
-					<p><a href="http://gemoc.org">http://gemoc.org/ins</a></p>
-				</section>
 
 				<section data-background="#ffffff">
-					<img alt="" src="pics/gemoc-anr-map.png">
-				</section>
+					<h2>GEMOC</h2>
+					<ul>
+						<li class="fragment fade-in">The GEMOC ANR project (<a href="http://gemoc.org/ins">http://gemoc.org/ins</a>):
+							<p>
+								<q style="color: gray;" cite="http://gemoc.org"> A Language Workbench for concurrent execution and simulation of heterogeneous models </q>
+							</p>
+						</li>
+						<li class="fragment fade-in">The GEMOC Initiative (<a href="http://gemoc.org/">http://gemoc.org/</a>):
+							<p>
+								<q style="color: gray;" cite="http://gemoc.org">GEMOC is an open international initiative that aims to coordinate and disseminate the research results regarding the support of the coordinated use of various modeling languages that will lead to the concept of globalization of modeling
+									languages, that is, the use of multiple modeling languages to support coordinated development of diverse aspects of a system.</q>
+							</p>
+						</li>
+					</ul>
 
-
-				<section data-background="#ffffff">
-					<h2 style="color: gray">The GEMOC Initiative</h2>
-					<q style="color: gray;" cite="http://gemoc.org">GEMOC is an open international initiative that aims to coordinate and disseminate the research results regarding the support of the coordinated use of various modeling languages that will lead to the concept of globalization of modeling
-						languages, that is, the use of multiple modeling languages to support coordinated development of diverse aspects of a system.</q>
-					<p><a href="http://gemoc.org">http://gemoc.org</a></p>
 				</section>
 
 				<section data-background="pics/gemoc-initiative-map.png" style="color: gray;">
@@ -473,7 +485,7 @@ class ActivityAspect {
 				</section>
 
 				<section>
-					<h2>Other GEMOC Technologies</h2>
+					<h2>GEMOC Technologies</h2>
 
 					<ul>
 						<li>Ready for pilote project:
@@ -492,14 +504,6 @@ class ActivityAspect {
 				</section>
 
 
-				<section>
-					<h2>Sirius Animation Status</h2>
-					<p>Applied "Prototype" level of maturity : Arduino Designer, fUML, TTC2015</p>
-					<p>Incubating, EPL Licensed</p>
-					<p>Compatible with Sirius 2.0 (straightforward migration to 3.0)</p>
-					<p>Looking for interest and more complex use cases to move forward.</p>
-				</section>
-
 				<section data-background="pics/lab.jpg">
 					<h2 style="color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Introducing Sirius Lab</h2>
 					<!-- Page sur Sirius -->
@@ -507,9 +511,7 @@ class ActivityAspect {
 				</section>
 
 				<section>
-					<p>
-						<b>Generic</b> technologies which have proven helpful and are looking for an interest to bring it at full maturity level.
-					</p>
+						<b>Generic</b> technologies (EPL) which have proven helpful and are looking for an interest to bring it at full maturity level.
 					<img alt="" src="pics/sirius-lab-web.png">
 				</section>
 
@@ -517,18 +519,16 @@ class ActivityAspect {
 				<section>
 					<h2>in a Nutshell...</h2>
 					<ul>
-						<li class="fragment fade-in">POJO Animator (case of Arduino Designer)
-							<small><ul>
-								<li>Code the Interpreter, the Execution Engine and possibly any additional tools</li>
-								<li><i>quick results, easy to integrate, very few (or custom) execution control.</i></li>
-							</ul></small>
+						<li class="fragment fade-in">POJO Animator (case of Arduino Designer) <small><ul>
+									<li>Code the Interpreter, the Execution Engine and possibly any additional tools</li>
+									<li><i>quick results, easy to integrate, very few (or custom) execution control.</i></li>
+								</ul></small>
 						</li>
-						<br/>
-						<li class="fragment fade-in">Advanced Animator (case of Activity Diagram)
-							<small><ul>
-								<li>Code the Interpreter and use the generic Execution Engine and Trace manager</li>
-								<li><i>more analysis capabilities (concurrency) and rich execution control (panel, timeline...)</i></li>
-							</ul></small>
+						<br />
+						<li class="fragment fade-in">Advanced Animator (case of Activity Diagram) <small><ul>
+									<li>Code the Interpreter and use the generic Execution Engine and Trace manager</li>
+									<li><i>more analysis capabilities (concurrency) and rich execution control (panel, timeline...)</i></li>
+								</ul></small>
 						</li>
 					</ul>
 				</section>
@@ -536,10 +536,12 @@ class ActivityAspect {
 				<section style="text-align: left;">
 					<h1>TO BE CONTINUED...</h1>
 					<p>
-						- <a href="">Try executable Arduino Designer</a> <small>0.1.x series</small><br> - Read the <a href="http://gemoc.org/publications/">GEMOC Publications</a> <br> - <a href="https://github.com/hakimel/reveal.js">Join the GEMOC Initiative</a> <br> - <a href="">Get in touch with us</a> to breath life into
-						your designer
+						- <a href="">Try executable Arduino Designer</a> <small>0.1.x</small><br> - Read the <a href="http://gemoc.org/publications/">GEMOC Publications</a> <br> - <a href="https://github.com/hakimel/reveal.js">Join the GEMOC Initiative</a> <br> - <a href="">Get in touch with us</a> to
+						breath life into your designer
 					</p>
 				</section>
+
+				<section data-background="pics/evaluation.png"></section>
 			</section>
 		</div>
 
