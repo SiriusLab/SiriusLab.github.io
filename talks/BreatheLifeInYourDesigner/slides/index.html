@@ -78,7 +78,7 @@
 								<li>No abstraction gap</li>
 								<li>Better turn-arounds</li>
 							</ul>
-							<li>=> Fast convergence towards an acceptable design</li>
+							<li>&Implies; Fast convergence towards an acceptable design</li>
 						</ul>
 					</section>
 					
@@ -99,16 +99,17 @@
 						<h3>See <a href="http://gemoc.org/ttc15">http://gemoc.org/ttc15</a></h3>
 					</section>
 					
-					<section>
-						<h2>Required Tools</h2>
-						<ul>
-							<li>Interpreter<!--: step-by-step virtual machine for a given DSL--></li>
-							<li>Animator<!--: (graphical) representation of the execution state for a given DSL (either by extension of the editor representation, or with a new representation)--></li>
-							<li>Trace manager<!--: efficient and rich execution trace manipulation--></li>
-							<li>Execution engine<!--: coordinate the first 3 tools--></li>
-							<li>Control panel<!--: UI to control the execution engine (incl. step forward/backward, breakpoint) and navigate through the execution trace with a timeline--></li>
-						</ul>
-					</section>
+     <!-- <section>
+<h2>Required Tools</h2>
+<ul>
+<li>Interpreter: step-by-step virtual machine for a given DSL</li>
+<li>Animator: (graphical) representation of the execution state for a given DSL (either by extension of the editor representation, or with a new representation)</li>
+<li>Trace manager: efficient and rich execution trace manipulation</li>
+<li>Execution engine: coordinate the first 3 tools</li>
+<li>Control panel: UI to control the execution engine (incl. step forward/backward, breakpoint) and navigate through the execution trace with a timeline</li>
+</ul>
+</section>
+-->
 					
 					<section data-background="./pics/executableDSL-tools1.png">
 					</section>
@@ -435,11 +436,13 @@ class ActivityAspect {
 			<section>
 
 
-				<section>
-					<h2>GEMOC ANR project</h2>
-					<p>ANR Project #ANR-12-INSE-0011, Program INS</p>
-					<p>Date: 01.12.12 - 30.03.16</p>
-					<p>Competitiveness clusters: Image & Réseaux, Aerospace Valley and Systematic</p>
+				<section data-background="#ffffff">
+					<h2>The GEMOC ANR project</h2>
+					<q style="color: gray;" cite="http://gemoc.org">
+						A Language Workbench for Heterogeneous Modeling and Analysis of Complex Software-Intensive Systems
+					</q>
+					<p>ANR Project #ANR-12-INSE-0011, 2012 - 2016</p>
+					<p><a href="http://gemoc.org">http://gemoc.org/ins</a></p>
 				</section>
 
 				<section data-background="#ffffff">
@@ -448,9 +451,10 @@ class ActivityAspect {
 
 
 				<section data-background="#ffffff">
-					<h2 style="color: gray">GEMOC Initiative</h2>
-					<q style="color: gray;" cite="http://gemoc.org/">GEMOC is an open international initiative that aims to coordinate and disseminate the research results regarding the support of the coordinated use of various modeling languages that will lead to the concept of globalization of modeling
+					<h2 style="color: gray">The GEMOC Initiative</h2>
+					<q style="color: gray;" cite="http://gemoc.org">GEMOC is an open international initiative that aims to coordinate and disseminate the research results regarding the support of the coordinated use of various modeling languages that will lead to the concept of globalization of modeling
 						languages, that is, the use of multiple modeling languages to support coordinated development of diverse aspects of a system.</q>
+					<p><a href="http://gemoc.org">http://gemoc.org</a></p>
 				</section>
 
 				<section data-background="pics/gemoc-initiative-map.png" style="color: gray;">
@@ -463,15 +467,14 @@ class ActivityAspect {
 					<ul>
 						<li>Ready for pilote project:
 							<ul>
-								<li>XXX</li>
-								<li>XXX</li>
+								<small><li>Sirius Animation (animator designer and runtime, execution engine, trace manager)</li></small>
 							</ul>
 						</li>
 						<li>Ready for more R&D:
 							<ul>
 
-								<li>XXX</li>
-								<li>XXX</li>
+								<small><li>MoccML and Timesquare for explicit concurrency specification in DSLs</li></small>
+								<small><li>BCOoL for coordination patterns between DSLs</li></small>
 							</ul>
 						</li>
 					</ul>
