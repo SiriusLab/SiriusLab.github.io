@@ -377,7 +377,7 @@ public void updateData(String threadName, EObject instruction) {
 				</section>
 
 				<section>
-					<h2>Context: TTC contest</h2>
+					<h2>Context: TTC'15 Execution Model Case</h2>
 					<ul>
 						<li><code>.ecore</code> is provided "as-is" and can't be adapted</li>
 					</ul>
@@ -388,7 +388,7 @@ public void updateData(String threadName, EObject instruction) {
 
 
 				<section>
-					<h2>Define runtime concepts</h2>
+					<h2>Interpreter<br/>(runtime concepts)</h2>
 					<small><pre>
 							<code>
 @Aspect(className=ActivityNode)
@@ -410,7 +410,7 @@ class ForkedToken extends Token {
 				</section>
 
 				<section>
-					<h2>Definition of Execution Semantics</h2>
+					<h2>Interpreter<br/>(computational steps)</h2>
 					<small><pre>
 							<code>
 @Aspect(className=Activity)
@@ -435,7 +435,10 @@ class ActivityAspect {
 				<section>
 					<h2>Additional capabilities "for free" : demo</h2>
 					<ul>
-						<li></li>
+						<li>Definition of the animator with Sirius Animation</li>
+						<li>Use of the generic execution engine</li>
+						<li>Use of the generic trace manager</li>
+						<li>Use of the control panel, timeline and breakpoint manager</li>
 					</ul>
 				</section>
 
@@ -523,7 +526,7 @@ class ActivityAspect {
 						<br/>
 						<li class="fragment fade-in">Advanced Animator (case of Activity Diagram)
 							<small><ul>
-								<li>Code the Interpreter use the generic Execution Engine and Trace manager</li>
+								<li>Code the Interpreter and use the generic Execution Engine and Trace manager</li>
 								<li><i>more analysis capabilities (concurrency) and rich execution control (panel, timeline...)</i></li>
 							</ul></small>
 						</li>
