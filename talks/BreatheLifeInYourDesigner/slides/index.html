@@ -55,85 +55,104 @@
 
 
 			<section>
-
-				<section data-background="#FFFFFF">
-					<h2>
-						<span style="color: black;">Debugging (domain-specific) behavioral models?</span>
-					</h2>
-					<img src="./pics/behavioralmodel.jpg" width="300px" alt="Behavioral Models" />
-					<h3>
-						<span style="color: black;">Business Processes, Orchestrations, Functional chains, Scenarios, etc.</span>
-					</h3>
-				</section>
-
 				<section>
-					<h2>Analysing behavioral properties?</h2>
-					<ul>
-						<li>Early V&V in software and systems design</li>
-						<li>Impact analysis in processes of enterprise architectures</li>
-						<li>Etc.</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Omniscient Model Debugging</h2>
-					<ul>
-						<li>Intuitive model comprehension technique</li>
+						<h2>(Domain-Specific)<br/>Behavioral Models</h2>
+						<img src="./pics/behavioralmodel.jpg" width="300px" alt="Behavioral Models" />
+						<p>Business Processes, Orchestrations, Functional chains, Activities, Protocoles, Scenarios...</p>
+					</section>
+	
+					<section>
+						<h2>Analysis of Behavioral Models</h2>
 						<ul>
-							<li>No abstraction gap</li>
-							<li>Better turn-arounds</li>
+						<li>Early V&V or impact analysis of behavioral properties</li>	
+						<li>Software engineering, systems engineering, enterprise architecture, scientific modeling...</li>
 						</ul>
-						<li>=> Fast convergence towards an acceptable design</li>
-					</ul>
-				</section>
+					</section>
 
+					<section>
+						<h2>Model Debugging</h2>
+						<ul>
+							<li>Traversing step forward the states reached by the model through the application of the interpreter</li>
+							<li>Intuitive model comprehension technique</li>
+							<ul>
+								<li>No abstraction gap</li>
+								<li>Better turn-arounds</li>
+							</ul>
+							<li>=> Fast convergence towards an acceptable design</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h2>Omniscient Model Debugging</h2>
+						<ul>
+							<li>Relies on an execution trace to revert the executed model into a prior state</li>
+							<ul>
+								<li>No record & replay</li>
+								<li>(exact) Replay</li>
+							</ul>
+						</ul>
+					</section>
+					
+					<section>
+						<h2>Omniscient Debugging of Activity Diagrams<h2>
+						<img src="./pics/modelingworkbench.jpg" size="500px" alt="Debugger for Activity Diagrams" />
+						<h3>See <a href="http://gemoc.org/ttc15">http://gemoc.org/ttc15</a></h3>
+					</section>
+					
+					<section>
+						<h2>Required Tools</h2>
+						<ul>
+							<li>Interpreter<!--: step-by-step virtual machine for a given DSL--></li>
+							<li>Animator<!--: (graphical) representation of the execution state for a given DSL (either by extension of the editor representation, or with a new representation)--></li>
+							<li>Trace manager<!--: efficient and rich execution trace manipulation--></li>
+							<li>Execution engine<!--: coordinate the first 3 tools--></li>
+							<li>Control panel<!--: UI to control the execution engine (incl. step forward/backward, breakpoint) and navigate through the execution trace with a timeline--></li>
+						</ul>
+					</section>
+					
+					<section data-background="./pics/executableDSL-tools1.png">
+					</section>
+					
+				</section>
+				
 				<section>
-					<h2>
-						Omniscient Debugger for Activity Diagrams
-						<h2>
-							<img src="./pics/modelingworkbench.jpg" size="300px" alt="Debugger for Activity Diagrams" />
-							<h3>
-								See <a href="http://gemoc.org/ttc15">http://gemoc.org/ttc15</a>
-							</h3>
-				</section>
+					
+					<section>
+						<h2>How to get your own<br/>(domain-specific) debugger?</h2>
+						<!--<h3>Interpreter, Animator, Trace manager, Execution engine, Control panel, etc.</h3>-->
+					</section>
+					
+					<section data-background="./pics/executableDSL-tools2.png">
 
-				<section>
-					<h2>Expected tools for Omniscient Debugger</h2>
-					<ul>
-						<li>execution engine</li>
-						<li>animator</li>
-						<li>trace manager</li>
-						<li>control panel (incl. forward/backward, breakpoint)</li>
-					</ul>
-				</section>
+					</section>
 
-			</section>
-
-			<section>
-
-				<section data-background="http://www.hsdata.com/Media/Default/HS%20Data/software-development.jpg">
-					<h2>
-						<span style="color: black;">How to get your own (domain-specific) debugger?</span>
-					</h2>
-					<h3>
-						<span style="color: black;">Interpreter, Animator, Trace manager, Execution engine, Control panel, etc.</span>
-					</h3>
-				</section>
-
-				<section>
-					<h2>Required developments for each DSL</h2>
-					<p>TODO (figure: from M1 to M2)</p>
-				</section>
-
-				<section>
-					<h2>Proposed Approach</h2>
-					<p>TODO</p>
-				</section>
-
-				<section>
-					<h2>Alternatives and Tradeoff</h2>
-					<p>TODO</p>
-				</section>
+					<!--
+					<section>
+						<h2>Required developments for each DSL<h2>
+						<img src="./pics/executableDSL-debug.png" alt="Required developments for each DSL" />
+					</section>
+					
+					<section data-background="./pics/executableDSL.png">
+					</section>
+					-->
+				
+					<section>
+						<h2>Proposed Approach: Wrap-up</h2>
+						<ul>
+							<li>Xtend/Kermeta or Java to define the interpreter</li>
+							<li>Sirius Animation to define the animator</li>
+							<li class="fragment roll-in">A generative approach for the trace manager</li>
+							<li class="fragment roll-in">A generic execution engine</li>
+							<li class="fragment roll-in">A generic control panel and timeline</li>
+						</ul>
+					</section>
+					
+					<!--<section>
+						<h2>Alternatives and Tradeoff</h2>
+						<p>
+						TODO
+						</p>
+					</section>-->
 
 			</section>
 
